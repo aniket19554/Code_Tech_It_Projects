@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniket's Portfolio</title>
+    <style>
+        :root {
+            --primary: #4fc3f7;
+            --secondary: #7c4dff;
+            --dark: #0a0a1a;
+            --light: #e6f1ff;
+            --accent: #64ffda;
+            --pink: #ff2d75;
+            --yellow: #ffeb3b;
+        }
+        
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            color: var(--light);
+            font-family: 'Calibri', 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #0a0a1a 0%, #000000 100%);
+        }
+        
+        section {
+            min-height: 100vh;
+            padding: 100px 15%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            background-color: rgba(10, 10, 26, 0.85);
+            box-sizing: border-box;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-number {
+            color: var(--accent);
+            font-family: 'Courier New', monospace;
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin: 0;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 300px;
+            height: 1px;
+            background-color: var(--accent);
+            margin-top: 10px;
+            opacity: 0.3;
+        }
+
+                /* Add this to your existing styles */
+.about-content {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+        
+        .content-box {
+            background: linear-gradient(145deg, rgba(21, 42, 77, 0.7), rgba(10, 25, 47, 0.9));
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-left: 3px solid var(--accent);
+            margin-bottom: 30px;
+        }
+       
+
+
+
+.photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+}
+
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--accent);
+    box-shadow: 0 8px 20px rgba(100, 255, 218, 0.25);
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .photo-container {
+        margin: 20px auto;
+        justify-content: center;
+    }
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.skill-card {
+    background: rgba(100, 255, 218, 0.1);
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid rgba(100, 255, 218, 0.3);
+    transition: all 0.3s ease;
+    opacity: 1;
+    backdrop-filter: blur(5px);
+}
+
+.skill-card:hover {
+    transform: translateY(-7px);
+    background: rgba(100, 255, 218, 0.2);
+    box-shadow: 0 8px 25px rgba(100, 255, 218, 0.15);
+}
+
+.skill-card h3 {
+    color: var(--primary);
+    margin: 0 0 15px 0;
+    font-size: 1.3rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.skill-card h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--accent);
+}
+
+.skill-card ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.skill-card li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    color: var(--light);
+    font-size: 1rem;
+}
+
+.skill-card li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+        
+        .project-card {
+            background: rgba(79, 195, 247, 0.1);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .education-item {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 2px solid var(--accent);
+        }
+        
+        .hobbies-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .hobby-item {
+            background: rgba(124, 77, 255, 0.1);
+            padding: 15px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(124, 77, 255, 0.3);
+        }
+        
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px;
+            color: white;
+            border-radius: 4px;
+        }
+        
+        .contact-form textarea {
+            grid-column: span 2;
+        }
+        
+        .btn {
+            background: var(--accent);
+            color: var(--dark);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 10%;
+            }
+            
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form textarea {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+
+   
+    
+    
+    <!-- <section id="about">
+        <div class="photo-container">
+            <img src="aniket.jpg" alt="Aniket" class="profile-photo circle-photo">
+        </div>
+        <div class="section-header">
+            <span class="section-number">01.</span>
+            <h2 class="section-title">About Me</h2>
+        </div>
+        
+        <div class="content-box">
+            <p>I am <strong>Aniket</strong>, a <strong>BTech graduate in Electronics and Communication Engineering</strong> with a strong foundation in <strong>web development, C++, and Data Structures & Algorithms (DSA)</strong>.</p>
+            <p>Passionate about leveraging my technical skills to solve real-world problems, I aim to contribute to innovative projects in software and embedded systems. My academic rigor and hands-on project experience have honed my analytical and problem-solving abilities.</p>
+            <p>Beyond engineering, I enjoy playing cricket, which has instilled in me discipline, teamwork, and strategic thinking. Eager to begin my professional journey, I am committed to continuous learning and growth in the field of technology.</p>
+        </div>
+
+        
+    </section> -->
+
+
+
+
+
+
+    <section id="about">
+        <div class="about-content">
+            <div>
+                <div class="section-header">
+                    <span class="section-number">01.</span>
+                    <h2 class="section-title">About Me</h2>
+                </div>
+                
+                <div class="content-box">
+                    <p>I am <strong>Aniket</strong>, a <strong>BTech graduate in Electronics and Communication Engineering</strong> with a strong foundation in <strong>web development, C++, and Data Structures & Algorithms (DSA)</strong>.</p>
+                    <p>Passionate about leveraging my technical skills to solve real-world problems, I aim to contribute to innovative projects in software and embedded systems. My academic rigor and hands-on project experience have honed my analytical and problem-solving abilities.</p>
+                    <p>Beyond engineering, I enjoy playing cricket, which has instilled in me discipline, teamwork, and strategic thinking. Eager to begin my professional journey, I am committed to continuous learning and growth in the field of technology.</p>
+                </div>
+            </div>
+            
+            <div class="photo-container">
+                <img src="aniket.jpg" alt="Aniket" class="profile-photo circle-photo">
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    
+    <section id="skills">
+        <div class="section-header">
+            <span class="section-number">02.</span>
+            <h2 class="section-title">My Skills</h2>
+        </div>
+        
+        <div class="content-box">
+            <p>Here are the technologies I've been working with:</p>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Web Development</h3>
+                    <ul>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>JavaScript</li>
+                        <li>React</li>
+                        <li>Node.js</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Programming</h3>
+                    <ul>
+                        <li>C++</li>
+                        <li>Python</li>
+                        <li>Data Structures</li>
+                        <li>Algorithms</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Database</h3>
+                    <ul>
+                        <li>MySQL</li>
+                        <li>MongoDB</li>
+                        <li>Firebase</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Tools & Technologies</h3>
+                    <ul>
+                        <li>Git</li>
+                        <li>VS Code</li>
+                        <li>Linux</li>
+                        <li>Docker</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Electronics</h3>
+                    <ul>
+                        <li>Embedded Systems</li>
+                        <li>Arduino</li>
+                        <li>IoT</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Problem Solving</li>
+                        <li>Teamwork</li>
+                        <li>Communication</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="projects">
+        <div class="section-header">
+            <span class="section-number">03.</span>
+            <h2 class="section-title">My Projects</h2>
+        </div>
+        
+        <div class="content-box">
+            <div class="project-card">
+                <h3>Portfolio Website</h3>
+                <p>Interactive portfolio with Three.js animations and GSAP scroll effects. Showcases my skills and projects in an engaging way.</p>
+                <p><strong>Technologies:</strong> HTML5, CSS3, JavaScript, Three.js, GSAP</p>
+            </div>
+            
+            <div class="project-card">
+                <h3>Algorithm Visualizer</h3>
+                <p>Web application that visualizes sorting and pathfinding algorithms with interactive controls.</p>
+                <p><strong>Technologies:</strong> React, D3.js, JavaScript</p>
+            </div>
+            
+            <div class="project-card">
+                <h3>Smart Home System</h3>
+                <p>IoT project controlling home appliances remotely with voice commands and mobile app.</p>
+                <p><strong>Technologies:</strong> Arduino, Node.js, Firebase</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="education">
+        <div class="section-header">
+            <span class="section-number">04.</span>
+            <h2 class="section-title">Education</h2>
+        </div>
+        
+        <div class="content-box">
+            <div class="education-item">
+                <h3>Bachelor of Technology in Electronics and Communication Engineering</h3>
+                <p><strong>National Institute Of Technology Kurukshetra</strong> | 2023 - 2027</p>
+                <p>CGPA: 8.07/10</p>
+                <p>Relevant Coursework: Data Structures, Algorithms, Web Development, Embedded Systems</p>
+            </div>
+            
+            <div class="education-item">
+                <h3>Higher Secondary Education</h3>
+                <p><strong>Hindu Sr. Sec School</strong> | 2018 - 2020</p>
+                <p>Percentage: 95%</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="hobbies">
+        <div class="section-header">
+            <span class="section-number">05.</span>
+            <h2 class="section-title">Hobbies & Interests</h2>
+        </div>
+        
+        <div class="content-box">
+            <div class="hobbies-container">
+                <div class="hobby-item">Cricket</div>
+                <div class="hobby-item">Programming</div>
+                <div class="hobby-item">Electronics Projects</div>
+                <div class="hobby-item">Reading Tech Blogs</div>
+                <div class="hobby-item">Badminton</div>
+                <div class="hobby-item">Music</div>
+                <div class="hobby-item">Traveling</div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="section-header">
+            <span class="section-number">06.</span>
+            <h2 class="section-title">Contact Me</h2>
+        </div>
+        
+        <div class="content-box">
+            <p>Feel free to reach out for collaborations or just to say hello!</p>
+            
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+            
+            <div style="margin-top: 30px;">
+                <p><strong>Email:</strong> aniketsaini1857@gmail.com</p>
+                <p><strong>Phone:</strong> +91 7703921057</p>
+                <p><strong>LinkedIn:</strong> linkedin.com/in/aniket</p>
+                <p><strong>GitHub:</strong> github.com/aniket</p>
+            </div>
+        </div>
+    </section>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    
+    <script>
+
+
+        
+        // Enhanced Cosmic Background with Colorful Stars
+        const initCosmicBackground = () => {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ 
+                antialias: true,
+                alpha: true
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+            // Create colorful stars
+            const createStars = () => {
+                const starGeometry = new THREE.BufferGeometry();
+                const starMaterial = new THREE.PointsMaterial({
+                    size: 0.2,
+                    transparent: true,
+                    opacity: 1,
+                    sizeAttenuation: true,
+                    blending: THREE.AdditiveBlending
+                });
+
+                const starVertices = [];
+                const starColors = [];
+                const starSizes = [];
+                
+                // Star colors: white, blue, yellow, pink
+                const colors = [
+                    new THREE.Color(0xffffff), // white
+                    new THREE.Color(0x4fc3f7), // blue
+                    new THREE.Color(0xffeb3b), // yellow
+                    new THREE.Color(0xff2d75)  // pink
+                ];
+                
+                for (let i = 0; i < 2000; i++) {
+                    starVertices.push(
+                        (Math.random() - 0.5) * 2000,
+                        (Math.random() - 0.5) * 2000,
+                        (Math.random() - 0.5) * 2000
+                    );
+                    
+                    // Random color
+                    const colorIdx = Math.floor(Math.random() * colors.length);
+                    starColors.push(colors[colorIdx].r, colors[colorIdx].g, colors[colorIdx].b);
+                    
+                    // Random size
+                    starSizes.push(Math.random() * 0.3 + 0.1);
+                }
+                
+                starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
+                starGeometry.setAttribute('color', new THREE.Float32BufferAttribute(starColors, 3));
+                starGeometry.setAttribute('size', new THREE.Float32BufferAttribute(starSizes, 1));
+                
+                starMaterial.vertexColors = true;
+                
+                return new THREE.Points(starGeometry, starMaterial);
+            };
+            
+            const stars = createStars();
+            scene.add(stars);
+
+            // Create shooting stars with glowing tails
+            const shootingStars = [];
+            const createShootingStar = () => {
+                const tailLength = 10;
+                const tailGeometry = new THREE.BufferGeometry();
+                const tailMaterial = new THREE.LineBasicMaterial({
+                    color: 0x4fc3f7,
+                    linewidth: 2,
+                    transparent: true,
+                    opacity: 1,
+                    blending: THREE.AdditiveBlending
+                });
+
+                const positions = new Float32Array(tailLength * 3);
+                tailGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+                
+                const tail = new THREE.Line(tailGeometry, tailMaterial);
+                scene.add(tail);
+
+                return {
+                    tail,
+                    speed: Math.random() * 2 + 1.5,
+                    reset() {
+                        const edge = Math.floor(Math.random() * 4);
+                        let x, y, z, dx, dy, dz;
+                        
+                        switch(edge) {
+                            case 0: // Top
+                                x = (Math.random() - 0.5) * 100;
+                                y = 60;
+                                z = (Math.random() - 0.5) * 30;
+                                dx = (Math.random() - 0.5) * 0.5;
+                                dy = -Math.random() * 0.5 - 0.5;
+                                dz = (Math.random() - 0.5) * 0.2;
+                                break;
+                            case 1: // Right
+                                x = 60;
+                                y = (Math.random() - 0.5) * 100;
+                                z = (Math.random() - 0.5) * 30;
+                                dx = -Math.random() * 0.5 - 0.5;
+                                dy = (Math.random() - 0.5) * 0.5;
+                                dz = (Math.random() - 0.5) * 0.2;
+                                break;
+                            case 2: // Bottom
+                                x = (Math.random() - 0.5) * 100;
+                                y = -60;
+                                z = (Math.random() - 0.5) * 30;
+                                dx = (Math.random() - 0.5) * 0.5;
+                                dy = Math.random() * 0.5 + 0.5;
+                                dz = (Math.random() - 0.5) * 0.2;
+                                break;
+                            default: // Left
+                                x = -60;
+                                y = (Math.random() - 0.5) * 100;
+                                z = (Math.random() - 0.5) * 30;
+                                dx = Math.random() * 0.5 + 0.5;
+                                dy = (Math.random() - 0.5) * 0.5;
+                                dz = (Math.random() - 0.5) * 0.2;
+                        }
+
+                        for (let i = 0; i < tailLength; i++) {
+                            const segmentPos = i / tailLength;
+                            positions[i*3] = x - dx * i * 3;
+                            positions[i*3+1] = y - dy * i * 3;
+                            positions[i*3+2] = z - dz * i * 3;
+                        }
+                        tail.geometry.attributes.position.needsUpdate = true;
+                        
+                        this.dx = dx;
+                        this.dy = dy;
+                        this.dz = dz;
+                        this.x = x;
+                        this.y = y;
+                        this.z = z;
+                    },
+                    update() {
+                        const positions = this.tail.geometry.attributes.position.array;
+                        for (let i = 0; i < tailLength; i++) {
+                            positions[i*3] += this.dx * this.speed;
+                            positions[i*3+1] += this.dy * this.speed;
+                            positions[i*3+2] += this.dz * this.speed;
+                        }
+                        this.tail.geometry.attributes.position.needsUpdate = true;
+
+                        this.x += this.dx * this.speed;
+                        this.y += this.dy * this.speed;
+                        this.z += this.dz * this.speed;
+
+                        if (Math.abs(this.x) > 100 || Math.abs(this.y) > 100) {
+                            this.reset();
+                        }
+                    }
+                };
+            };
+
+            // Create multiple shooting stars
+            for (let i = 0; i < 6; i++) {
+                const star = createShootingStar();
+                star.reset();
+                shootingStars.push(star);
+                
+                setTimeout(() => star.reset(), i * 2000);
+            }
+
+            camera.position.z = 30;
+
+            // Animation loop
+            const animate = () => {
+                requestAnimationFrame(animate);
+                
+                shootingStars.forEach(star => star.update());
+                stars.rotation.y -= 0.0001;
+                
+                renderer.render(scene, camera);
+            };
+            animate();
+
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        };
+
+        // GSAP Scroll Animations
+        const initAnimations = () => {
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Animate all sections
+            gsap.utils.toArray("section").forEach(section => {
+                gsap.from(section, {
+                    opacity: 0,
+                    y: 50,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 80%",
+                        toggleActions: "play none none none"
+                    }
+                });
+                
+                // Animate section headers
+                gsap.from(section.querySelector(".section-header"), {
+                    x: -50,
+                    opacity: 0,
+                    duration: 0.8,
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    }
+                });
+                
+                // Animate content boxes
+                gsap.from(section.querySelector(".content-box"), {
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    }
+                });
+            });
+            
+            // Special animations for skills grid
+            gsap.from(".skill-card", {
+                y: 30,
+                opacity: 2,
+                duration: 0.6,
+                stagger: 0.1,
+                scrollTrigger: {
+                    trigger: "#skills",
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                }
+            });
+            
+            // Project card animations
+            gsap.from(".project-card", {
+                y: 40,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                scrollTrigger: {
+                    trigger: "#projects",
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                }
+            });
+            
+            // Education item animations
+            gsap.from(".education-item", {
+                x: -30,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                scrollTrigger: {
+                    trigger: "#education",
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                }
+            });
+            
+            // Hobby item animations
+            gsap.from(".hobby-item", {
+                scale: 0,
+                opacity: 0,
+                duration: 0.5,
+                stagger: 0.1,
+                scrollTrigger: {
+                    trigger: "#hobbies",
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                }
+            });
+            
+            // Contact form animations
+            gsap.from(".contact-form input, .contact-form textarea", {
+                y: 20,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.1,
+                scrollTrigger: {
+                    trigger: "#contact",
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                }
+            });
+            
+            gsap.from(".btn", {
+                scale: 0.8,
+                opacity: 0,
+                duration: 0.5,
+                scrollTrigger: {
+                    trigger: "#contact",
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                }
+            });
+        };
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            initCosmicBackground();
+            initAnimations();
+        });
+       
+        gsap.from(".profile-photo", {
+            duration: 1.5,
+            scale: 0.5,
+            opacity: 0,
+            ease: "back.out(1.7)",
+            scrollTrigger: {
+                trigger: "#about",
+                start: "top 80%",
+                toggleActions: "play none none none"
+            }
+        });
+
+    </script>
+</body>
+</html>

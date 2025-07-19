@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxuryShop | Premium PWA E-commerce</title>
+    <meta name="description" content="Progressive Web App for luxury shopping with offline support">
+    <meta name="theme-color" content="#1a1a1a">
+    <link rel="manifest" href="app.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+    <!-- Offline Status Banner -->
+    <div class="offline-banner" id="offlineBanner">
+        <i class="fas fa-wifi"></i> You are currently offline. Some features may be limited.
+    </div>
+    
+    <!-- Scroll to top button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <i class="fas fa-gem"></i> Luxury<span>Shop</span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#features"><i class="fas fa-star"></i> Features</a>
+                <a href="#collections"><i class="fas fa-layer-group"></i> Collections</a>
+                <a href="#products"><i class="fas fa-crown"></i> Products</a>
+                <a href="#offline"><i class="fas fa-wifi"></i> Offline</a>
+                <a href="#notifications"><i class="fas fa-bell"></i> Notifications</a>
+                <a href="#"><i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="fade-in">Exclusive Luxury Shopping Experience</h1>
+            <p class="fade-in">Discover the world's most exquisite items with our Progressive Web App. Enjoy seamless shopping even without an internet connection.</p>
+            <div class="btn-group">
+                <a href="#collections" class="btn fade-in">Explore Collections</a>
+                <a href="#features" class="btn btn-outline fade-in">PWA Features</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-title">
+            <h2>PWA Superpowers</h2>
+            <p>Our progressive web app delivers unparalleled shopping experiences with cutting-edge features</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3>Installable</h3>
+                <p>Add to your home screen and launch like a native app. No app store required!</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon"><i class="fas fa-wifi-slash"></i></div>
+                <h3>Offline First</h3>
+                <p>Browse products, view details, and add to cart even without internet connection.</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon"><i class="fas fa-bell"></i></div>
+                <h3>Push Notifications</h3>
+                <p>Get real-time updates on orders, exclusive deals, and new arrivals.</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                <h3>Lightning Fast</h3>
+                <p>Instant loading with service workers and efficient caching strategies.</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon"><i class="fas fa-lock"></i></div>
+                <h3>Secure</h3>
+                <p>All data is encrypted and transmitted securely via HTTPS protocol.</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon"><i class="fas fa-sync-alt"></i></div>
+                <h3>Auto Sync</h3>
+                <p>Changes made offline are automatically synced when connection is restored.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Collections Section -->
+    <section class="collections" id="collections">
+        <div class="section-title">
+            <h2>Luxury Collections</h2>
+            <p>Discover our curated luxury categories</p>
+        </div>
+        
+        <div class="collections-grid">
+            <div class="collection-card fade-in">
+                <div class="collection-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80');">
+                    <div class="collection-overlay">
+                        <h3>Timepieces</h3>
+                        <p>Exquisite watches from renowned Swiss brands</p>
+                        <a href="#" class="btn">View Collection</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="collection-card fade-in">
+                <div class="collection-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1612786143266-b0363a2f9ca1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');">
+                    <div class="collection-overlay">
+                        <h3>Fine Jewelry</h3>
+                        <p>Diamonds, gemstones, and precious metals</p>
+                        <a href="#" class="btn">View Collection</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="collection-card fade-in">
+                <div class="collection-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80');">
+                    <div class="collection-overlay">
+                        <h3>Automotive</h3>
+                        <p>Premium sports cars and luxury vehicles</p>
+                        <a href="#" class="btn">View Collection</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="collection-card fade-in">
+                <div class="collection-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1601924994987-69e26d50dc26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');">
+                    <div class="collection-overlay">
+                        <h3>Art & Decor</h3>
+                        <p>Masterpieces and luxury home accents</p>
+                        <a href="#" class="btn">View Collection</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="section-title">
+            <h2>Luxury Collection</h2>
+            <p>Exquisite items for the discerning shopper</p>
+        </div>
+        
+        <div class="products-grid">
+            <div class="product-card fade-in">
+                <div class="product-badge">Limited</div>
+                <div class="product-img"><i class="fas fa-gem"></i></div>
+                <div class="product-info">
+                    <h3>Royal Diamond Necklace</h3>
+                    <div class="product-category">Jewelry</div>
+                    <div class="product-price price-high">$89,500</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="product-actions">
+                        <div class="btn-small btn-cart">Add to Cart</div>
+                        <div class="btn-small btn-wishlist"><i class="fas fa-heart"></i></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card fade-in">
+                <div class="product-badge">New</div>
+                <div class="product-img"><i class="fas fa-car"></i></div>
+                <div class="product-info">
+                    <h3>Luxury Sports Car</h3>
+                    <div class="product-category">Automotive</div>
+                    <div class="product-price price-high">$320,000</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="product-actions">
+                        <div class="btn-small btn-cart">Add to Cart</div>
+                        <div class="btn-small btn-wishlist"><i class="fas fa-heart"></i></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card fade-in">
+                <div class="product-badge">Exclusive</div>
+                <div class="product-img"><i class="fas fa-clock"></i></div>
+                <div class="product-info">
+                    <h3>Platinum Chronograph</h3>
+                    <div class="product-category">Watches</div>
+                    <div class="product-price price-high">$65,000</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="product-actions">
+                        <div class="btn-small btn-cart">Add to Cart</div>
+                        <div class="btn-small btn-wishlist"><i class="fas fa-heart"></i></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card fade-in">
+                <div class="product-img"><i class="fas fa-ring"></i></div>
+                <div class="product-info">
+                    <h3>Emerald & Diamond Ring</h3>
+                    <div class="product-category">Jewelry</div>
+                    <div class="product-price price-high">$42,800</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="product-actions">
+                        <div class="btn-small btn-cart">Add to Cart</div>
+                        <div class="btn-small btn-wishlist"><i class="fas fa-heart"></i></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card fade-in">
+                <div class="product-badge">Premium</div>
+                <div class="product-img"><i class="fas fa-wine-bottle"></i></div>
+                <div class="product-info">
+                    <h3>Vintage Champagne 1961</h3>
+                    <div class="product-category">Beverages</div>
+                    <div class="product-price price-high">$18,500</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="product-actions">
+                        <div class="btn-small btn-cart">Add to Cart</div>
+                        <div class="btn-small btn-wishlist"><i class="fas fa-heart"></i></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card fade-in">
+                <div class="product-badge">Limited</div>
+                <div class="product-img"><i class="fas fa-paint-brush"></i></div>
+                <div class="product-info">
+                    <h3>Modern Art Masterpiece</h3>
+                    <div class="product-category">Art</div>
+                    <div class="product-price price-high">$275,000</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="product-actions">
+                        <div class="btn-small btn-cart">Add to Cart</div>
+                        <div class="btn-small btn-wishlist"><i class="fas fa-heart"></i></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card fade-in">
+                <div class="product-badge">New</div>
+                <div class="product-img"><i class="fas fa-guitar"></i></div>
+                <div class="product-info">
+                    <h3>Vintage Electric Guitar</h3>
+                    <div class="product-category">Collectibles</div>
+                    <div class="product-price price-high">$48,500</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="product-actions">
+                        <div class="btn-small btn-cart">Add to Cart</div>
+                        <div class="btn-small btn-wishlist"><i class="fas fa-heart"></i></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card fade-in">
+                <div class="product-badge">Exclusive</div>
+                <div class="product-img"><i class="fas fa-camera"></i></div>
+                <div class="product-info">
+                    <h3>Leica Limited Edition</h3>
+                    <div class="product-category">Photography</div>
+                    <div class="product-price price-high">$22,800</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="product-actions">
+                        <div class="btn-small btn-cart">Add to Cart</div>
+                        <div class="btn-small btn-wishlist"><i class="fas fa-heart"></i></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card fade-in">
+                <div class="product-img"><i class="fas fa-umbrella-beach"></i></div>
+                <div class="product-info">
+                    <h3>Private Island Retreat</h3>
+                    <div class="product-category">Real Estate</div>
+                    <div class="product-price price-high">$12,500,000</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="product-actions">
+                        <div class="btn-small btn-cart">Add to Cart</div>
+                        <div class="btn-small btn-wishlist"><i class="fas fa-heart"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Offline Section -->
+    <section class="offline-section" id="offline">
+        <div class="offline-illustration">
+            <i class="fas fa-wifi-slash"></i>
+        </div>
+        <div class="offline-content">
+            <div class="offline-text">
+                <h2>Seamless Offline Experience</h2>
+                <p>Our PWA ensures you can continue browsing and shopping even when you lose connectivity. All your actions are saved and synchronized once you're back online.</p>
+                
+                <ul class="offline-features">
+                    <li><i class="fas fa-check-circle"></i> Browse previously viewed products offline</li>
+                    <li><i class="fas fa-check-circle"></i> Add items to cart without internet</li>
+                    <li><i class="fas fa-check-circle"></i> Save favorites for later viewing</li>
+                    <li><i class="fas fa-check-circle"></i> Automatic sync when connection is restored</li>
+                    <li><i class="fas fa-check-circle"></i> Fast loading with cached resources</li>
+                </ul>
+                
+                <a href="#products" class="btn">Shop Offline</a>
+            </div>
+            <div class="offline-image">
+                <div class="feature-icon" style="font-size: 8rem; color: var(--secondary);">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Notification Section -->
+    <section class="notification-section" id="notifications">
+        <div class="notification-content">
+            <div class="notification-illustration">
+                <i class="fas fa-bell"></i>
+            </div>
+            <h2>Never Miss an Exclusive Offer</h2>
+            <p>Enable push notifications to receive real-time updates on special offers, new arrivals, private sales, and order status updates.</p>
+            <button class="btn" id="enableNotifications">Enable Notifications</button>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-title">
+            <h2>Client Testimonials</h2>
+            <p>What our discerning customers say about their experience</p>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card slide-in-left">
+                <div class="testimonial-content">
+                    <p>"The offline capabilities of LuxuryShop are incredible. I was able to browse and add items to my cart during my flight, and everything synced perfectly when I landed."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">EM</div>
+                        <div class="author-info">
+                            <h4>Eleanor Montgomery</h4>
+                            <p>CEO, Montgomery Holdings</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card slide-in-right">
+                <div class="testimonial-content">
+                    <p>"The push notifications for exclusive sales have helped me acquire several rare pieces I've been searching for. The app experience rivals any native luxury application."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RW</div>
+                        <div class="author-info">
+                            <h4>Robert Wellington</h4>
+                            <p>Art Collector</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card slide-in-left">
+                <div class="testimonial-content">
+                    <p>"I'm impressed with how fast LuxuryShop loads compared to other shopping sites. The installable PWA has become my go-to for luxury purchases on mobile."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">CD</div>
+                        <div class="author-info">
+                            <h4>Claire Davenport</h4>
+                            <p>Tech Executive</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about LuxuryShop PWA</p>
+        </div>
+        
+        <div class="faq-container">
+            <div class="faq-item scale-in">
+                <div class="faq-question">
+                    How does the offline shopping experience work? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Our Progressive Web App uses advanced caching techniques to store product information, images, and your shopping cart locally on your device. When you lose connectivity, you can continue browsing previously viewed products, add items to your cart, and save favorites. Once you're back online, all changes are automatically synchronized with your account.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item scale-in">
+                <div class="faq-question">
+                    Is LuxuryShop PWA secure for making purchases? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely. All transactions are processed through our secure payment gateway with end-to-end encryption. The PWA is served over HTTPS, ensuring all communications between your device and our servers are protected. We also implement the latest security standards to safeguard your personal and payment information.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item scale-in">
+                <div class="faq-question">
+                    How do I install LuxuryShop on my device? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>On mobile devices, simply visit our website using Chrome, Safari, or Edge. You'll see an "Add to Home Screen" prompt (or you can find it in your browser menu). On desktop, look for the install icon in the address bar (Chrome/Edge) or in the Safari menu. Once installed, it will launch like a native app with its own icon and window.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item scale-in">
+                <div class="faq-question">
+                    Can I receive notifications without installing the app? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! Even without installing, you can opt-in to receive web push notifications about exclusive offers and updates. However, for the best experience including offline access and background notifications, we recommend installing the PWA to your device.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column slide-in-left">
+                <h3>LuxuryShop</h3>
+                <p>The ultimate progressive shopping experience for luxury goods. Discover, shop, and enjoy premium products anytime, anywhere.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column fade-in">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#hero"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#features"><i class="fas fa-chevron-right"></i> PWA Features</a></li>
+                    <li><a href="#collections"><i class="fas fa-chevron-right"></i> Collections</a></li>
+                    <li><a href="#products"><i class="fas fa-chevron-right"></i> Products</a></li>
+                    <li><a href="#offline"><i class="fas fa-chevron-right"></i> Offline Shopping</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column fade-in">
+                <h3>PWA Technologies</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-cog"></i> Service Workers</a></li>
+                    <li><a href="#"><i class="fas fa-database"></i> Cache API</a></li>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> Web App Manifest</a></li>
+                    <li><a href="#"><i class="fas fa-bell"></i> Push Notifications</a></li>
+                    <li><a href="#"><i class="fas fa-box"></i> IndexedDB</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column slide-in-right">
+                <h3>Contact Us</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> 4517 Washington Ave, NYC</a></li>
+                    <li><a href="#"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> contact@luxuryshop.com</a></li>
+                    <li><a href="#"><i class="fas fa-headset"></i> 24/7 Customer Support</a></li>
+                    <li><a href="#"><i class="fas fa-lock"></i> Secure Payment Options</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 LuxuryShop - Premium E-commerce PWA. All rights reserved.</p>
+            <p>This is a demonstration site for educational purposes.</p>
+        </div>
+    </footer>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                .then(registration => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                })
+                .catch(error => {
+                    console.log('Service Worker registration failed:', error);
+                });
+            });
+        }
+        
+        // Offline Detection
+        window.addEventListener('online', () => {
+            document.getElementById('offlineBanner').classList.remove('show');
+        });
+        
+        window.addEventListener('offline', () => {
+            document.getElementById('offlineBanner').classList.add('show');
+        });
+        
+        // Check initial status
+        if (!navigator.onLine) {
+            document.getElementById('offlineBanner').classList.add('show');
+        }
+        
+        // Notification Permission
+        document.getElementById('enableNotifications').addEventListener('click', () => {
+            if (!('Notification' in window)) {
+                alert('This browser does not support desktop notifications');
+                return;
+            }
+            
+            if (Notification.permission === 'granted') {
+                showNotification('Thank you for enabling notifications!');
+            } else if (Notification.permission !== 'denied') {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        showNotification('You will now receive updates about our exclusive offers!');
+                    }
+                });
+            }
+        });
+        
+        function showNotification(message) {
+            const notification = new Notification('LuxuryShop', {
+                body: message,
+                icon: 'https://via.placeholder.com/128/1a1a1a/d4af37?text=LS',
+                vibrate: [200, 100, 200]
+            });
+            
+            notification.onclick = () => {
+                window.focus();
+            };
+        }
+        
+        // Hamburger menu toggle
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+        
+        // Scroll to top functionality
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 500) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+        
+        // GSAP Animations with ScrollTrigger
+        document.addEventListener('DOMContentLoaded', () => {
+            // Register ScrollTrigger plugin
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Set up animations for all fade-in elements
+            gsap.utils.toArray('.fade-in').forEach(element => {
+                gsap.from(element, {
+                    opacity: 1,
+                    y: 50,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    }
+                });
+            });
+            
+            // Slide-in animations
+            gsap.utils.toArray('.slide-in-left').forEach(element => {
+                gsap.from(element, {
+                    opacity: 1,
+                    x: -50,
+                    duration: 0.8,
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    }
+                });
+            });
+            
+            gsap.utils.toArray('.slide-in-right').forEach(element => {
+                gsap.from(element, {
+                    opacity: 1,
+                    x: 50,
+                    duration: 0.8,
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    }
+                });
+            });
+            
+            // Scale-in animations
+            gsap.utils.toArray('.scale-in').forEach(element => {
+                gsap.from(element, {
+                    opacity: 1,
+                    scale: 0.8,
+                    duration: 0.8,
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    }
+                });
+            });
+            
+            // Feature card animations
+            gsap.utils.toArray('.feature-card').forEach((card, index) => {
+                gsap.from(card, {
+                    opacity: 1,
+                    y: 50,
+                    duration: 0.8,
+                    delay: index * 0.15,
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    }
+                });
+            });
+            
+            // Collection card animations
+            gsap.utils.toArray('.collection-card').forEach((card, index) => {
+                gsap.from(card, {
+                    opacity: 1,
+                    y: 50,
+                    duration: 0.8,
+                    delay: index * 0.1,
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    }
+                });
+            });
+            
+            // Product card animations
+            gsap.utils.toArray('.product-card').forEach((card, index) => {
+                gsap.from(card, {
+                    opacity: 1,
+                    y: 50,
+                    duration: 0.8,
+                    delay: index * 0.1,
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    }
+                });
+            });
+            
+            // Hero section animations
+            gsap.from('.hero h1', {
+                opacity: 1,
+                y: 50,
+                duration: 1.2,
+                delay: 0.2,
+                ease: 'power3.out'
+            });
+            
+            gsap.from('.hero p', {
+                opacity: 1,
+                y: 30,
+                duration: 1,
+                delay: 0.6,
+                ease: 'power3.out'
+            });
+            
+            gsap.from('.btn-group', {
+                opacity: 1,
+                y: 30,
+                duration: 1,
+                delay: 0.9,
+                ease: 'power3.out'
+            });
+            
+            // Notification section animation
+            gsap.from('.notification-content', {
+                opacity: 1,
+                y: 50,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: '.notification-section',
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                }
+            });
+            
+            // Footer animations
+            gsap.utils.toArray('.footer-column').forEach((column, index) => {
+                gsap.from(column, {
+                    opacity: 1,
+                    y: 30,
+                    duration: 0.8,
+                    delay: index * 0.2,
+                    scrollTrigger: {
+                        trigger: 'footer',
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <!-- Inline Service Worker -->
+    <script>
+        // Create service worker content as a Blob
+        const swContent = `
+        const CACHE_NAME = 'luxury-shop-pwa-v1';
+        const urlsToCache = [
+            '/',
+            'index.html',
+            'styles.css',
+            'app.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
+        ];
+        
+        self.addEventListener('install', event => {
+            event.waitUntil(
+                caches.open(CACHE_NAME)
+                    .then(cache => {
+                        console.log('Opened cache');
+                        return cache.addAll(urlsToCache);
+                    })
+            );
+        });
+        
+        self.addEventListener('fetch', event => {
+            event.respondWith(
+                caches.match(event.request)
+                    .then(response => {
+                        // Return cached response if found
+                        if (response) {
+                            return response;
+                        }
+                        
+                        // Otherwise fetch from network
+                        return fetch(event.request).then(response => {
+                            // Check if valid response
+                            if(!response || response.status !== 200 || response.type !== 'basic') {
+                                return response;
+                            }
+                            
+                            // Clone the response
+                            const responseToCache = response.clone();
+                            
+                            // Add to cache for future requests
+                            caches.open(CACHE_NAME)
+                                .then(cache => {
+                                    cache.put(event.request, responseToCache);
+                                });
+                            
+                            return response;
+                        });
+                    })
+            );
+        });
+        
+        self.addEventListener('activate', event => {
+            const cacheWhitelist = [CACHE_NAME];
+            
+            event.waitUntil(
+                caches.keys().then(cacheNames => {
+                    return Promise.all(
+                        cacheNames.map(cacheName => {
+                            if (cacheWhitelist.indexOf(cacheName) === -1) {
+                                return caches.delete(cacheName);
+                            }
+                        })
+                    );
+                })
+            );
+        });
+        
+        self.addEventListener('push', event => {
+            const data = event.data ? event.data.json() : {};
+            const title = data.title || 'New Update';
+            const options = {
+                body: data.body || 'Check out our latest offers!',
+                icon: 'https://via.placeholder.com/128/1a1a1a/d4af37?text=LS',
+                badge: 'https://via.placeholder.com/64/1a1a1a/d4af37?text=LS',
+                vibrate: [200, 100, 200],
+                data: {
+                    url: data.url || '/'
+                }
+            };
+            
+            event.waitUntil(self.registration.showNotification(title, options));
+        });
+        
+        self.addEventListener('notificationclick', event => {
+            event.notification.close();
+            event.waitUntil(
+                clients.openWindow(event.notification.data.url)
+            );
+        });
+        `;
+        
+        // Create a Blob from the service worker content
+        const blob = new Blob([swContent], {type: 'application/javascript'});
+        
+        // Create an object URL for the Blob
+        const swURL = URL.createObjectURL(blob);
+        
+        // Register the service worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register(swURL)
+                .then(registration => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                })
+                .catch(error => {
+                    console.log('Service Worker registration failed:', error);
+                });
+        }
+    </script>
+    
+    <!-- Web App Manifest -->
+    <script>
+        // Create and add manifest dynamically
+        const manifest = {
+            "name": "LuxuryShop",
+            "short_name": "LuxuryShop",
+            "start_url": "/",
+            "display": "standalone",
+            "background_color": "#1a1a1a",
+            "theme_color": "#1a1a1a",
+            "description": "Premium e-commerce PWA with offline support",
+            "icons": [
+                {
+                    "src": "https://via.placeholder.com/192/1a1a1a/d4af37?text=LS",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                },
+                {
+                    "src": "https://via.placeholder.com/512/1a1a1a/d4af37?text=LS",
+                    "sizes": "512x512",
+                    "type": "image/png"
+                }
+            ]
+        };
+        
+        const manifestBlob = new Blob([JSON.stringify(manifest)], {type: 'application/manifest+json'});
+        const manifestURL = URL.createObjectURL(manifestBlob);
+        
+        const link = document.createElement('link');
+        link.rel = 'manifest';
+        link.href = manifestURL;
+        document.head.appendChild(link);
+    </script>
+</body>
+</html>
